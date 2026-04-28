@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Unused Redfin low-res scrapes (kept locally as fallback only — not referenced in index.html)
+images/mls/
+
+# Editor
+.vscode/
+.idea/
+
+# Misc
+*.log
+node_modules/

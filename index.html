@@ -1,0 +1,2240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>18 Bridlewood Circle · A Northwest Rambler Beside Bridle Trails State Park</title>
+<meta name="description" content="A 1955 Northwest rambler reimagined in 2006 on 1.16 private acres adjacent to Bridle Trails State Park. 2,769 sq ft main residence + 894 sq ft detached living space. Kirkland, Washington.">
+<meta property="og:title" content="18 Bridlewood Circle · Bridle Trails, Kirkland">
+<meta property="og:description" content="2,769 sq ft + 894 sq ft barn · 4 bed · 3.5 bath · 1.16 acres adjacent to Bridle Trails State Park. By private appointment.">
+<meta property="og:image" content="images/photos/00.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Tenor+Sans&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* paper palette: warm cream, slightly forest-shifted */
+  --paper:        #EFE9DD;
+  --paper-warm:   #E7E0D0;
+  --paper-deep:   #D9D1BD;
+  --rule:         #CFC7B4;
+  --rule-soft:    #DCD5C3;
+
+  /* warm dark ink */
+  --ink:          #181612;
+  --ink-soft:     #36322B;
+  --ink-muted:    #6A6457;
+  --ink-faint:    #989283;
+
+  /* dark surfaces (inquiries, footer accents) */
+  --steel:        #15140F;
+  --steel-soft:   #25231C;
+
+  /* the only saturated band: forest moss for The Park */
+  --moss:         #2E4636;
+  --moss-soft:    #3E5A48;
+  --moss-deep:    #1F3023;
+
+  /* rare accents */
+  --copper:       #8B5A2B;
+  --copper-deep:  #6B4220;
+  --copper-light: #C28A55;
+
+  /* fonts */
+  --serif:        'Cormorant', 'Garamond', serif;
+  --sans:         'Tenor Sans', sans-serif;
+  --body:         'Outfit', -apple-system, system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--body);
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  line-height: 1.6;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+
+/* ------ typographic primitives ------ */
+.label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.role {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--copper);
+}
+.italic-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(30px, 3.6vw, 48px);
+  line-height: 1.18;
+  color: var(--ink);
+  letter-spacing: 0.005em;
+}
+.italic-title em { letter-spacing: 0.005em; }
+
+/* ------ scroll-reveal (used on titles, eyebrows, key body) ------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 1.1s ease, transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+.body-text {
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+}
+.explore-link {
+  display: inline-block;
+  margin-top: 36px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--ink);
+  transition: letter-spacing 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+.explore-link:hover {
+  letter-spacing: 0.42em;
+  color: var(--copper-deep);
+  border-color: var(--copper-deep);
+}
+
+/* ------ loader (Cormorant italic word reveal) ------ */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease;
+}
+.loader.done { opacity: 0; pointer-events: none; }
+.loader.gone { display: none; }
+.loader-mark {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(36px, 5.5vw, 72px);
+  line-height: 1.05;
+  color: var(--ink);
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+.loader-mark .word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.loader-mark .word span {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: lWord 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.loader-mark .w1 span { animation-delay: 0.05s; }
+.loader-mark .w2 span { animation-delay: 0.28s; }
+.loader-mark .w3 span { animation-delay: 0.52s; }
+@keyframes lWord { to { transform: translateY(0); } }
+.loader-line {
+  width: 0;
+  height: 1px;
+  background: var(--copper);
+  margin-top: 28px;
+  animation: lLine 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
+}
+@keyframes lLine { to { width: 96px; } }
+
+/* ------ navigation ------ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 26px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.5s ease, padding 0.5s ease, box-shadow 0.5s ease, color 0.5s ease;
+  background: transparent;
+  --nav-text: rgba(245, 240, 228, 0.96);
+  --nav-text-soft: rgba(245, 240, 228, 0.82);
+  --nav-text-accent: #E0B57E;
+  --nav-shadow: 0 1px 2px rgba(0,0,0,0.45), 0 2px 12px rgba(0,0,0,0.35);
+}
+.nav.scrolled {
+  background: rgba(239, 233, 221, 0.92);
+  backdrop-filter: saturate(140%) blur(14px);
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+  padding: 18px 48px;
+  box-shadow: 0 1px 0 var(--rule-soft);
+  --nav-text: var(--ink);
+  --nav-text-soft: var(--ink-soft);
+  --nav-text-accent: var(--copper-deep);
+  --nav-shadow: none;
+}
+.nav-mark {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--nav-text);
+  text-shadow: var(--nav-shadow);
+  transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+.nav-mark em {
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--nav-text-accent);
+  text-transform: none;
+  padding-left: 6px;
+  transition: color 0.5s ease;
+}
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--nav-text-soft);
+  text-shadow: var(--nav-shadow);
+  transition: color 0.3s ease, text-shadow 0.5s ease;
+}
+.nav-links a:hover { color: var(--nav-text-accent); }
+.nav-inquire {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--nav-text);
+  text-shadow: var(--nav-shadow);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--nav-text);
+  transition: letter-spacing 0.4s ease, color 0.4s ease, border-color 0.4s ease, text-shadow 0.5s ease;
+}
+.nav-inquire:hover {
+  letter-spacing: 0.38em;
+  color: var(--nav-text-accent);
+  border-color: var(--nav-text-accent);
+}
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--nav-text);
+  box-shadow: var(--nav-shadow);
+  transition: background 0.5s ease;
+}
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--paper);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-style: italic;
+  color: var(--ink);
+}
+.mobile-close {
+  position: absolute;
+  top: 28px;
+  right: 36px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+/* ------ hero ------ */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 660px;
+  overflow: hidden;
+  background: var(--ink);
+}
+.hero-media { position: absolute; inset: 0; }
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.16);
+  transition: transform 12s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.hero.loaded .hero-media img { transform: scale(1); }
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(20, 18, 14, 0.55) 0%,
+      rgba(20, 18, 14, 0.10) 22%,
+      rgba(20, 18, 14, 0) 50%,
+      rgba(20, 18, 14, 0.20) 70%,
+      rgba(20, 18, 14, 0.78) 100%);
+  pointer-events: none;
+}
+.hero-foot {
+  position: absolute;
+  left: 48px;
+  right: 48px;
+  bottom: 56px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  color: rgba(245, 240, 228, 0.96);
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5), 0 2px 14px rgba(0,0,0,0.45);
+}
+.hero-foot .label {
+  color: rgba(245, 240, 228, 0.82);
+  font-size: 10px;
+  letter-spacing: 0.45em;
+}
+.hero-foot-loc {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(18px, 1.8vw, 22px);
+  margin-top: 12px;
+  color: rgba(245, 240, 228, 0.98);
+}
+.hero-foot-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(30px, 3.4vw, 44px);
+  line-height: 1.05;
+  margin-top: 14px;
+  color: rgba(245, 240, 228, 0.98);
+  letter-spacing: -0.005em;
+}
+.hero-foot-title .num {
+  color: #E0B57E;
+  font-style: italic;
+}
+.hero-foot-right {
+  text-align: right;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 228, 0.85);
+  line-height: 1.9;
+}
+.hero-foot-right span { display: block; }
+.hero-foot-right em {
+  font-style: italic;
+  color: #E0B57E;
+  font-family: var(--serif);
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-size: 14px;
+}
+
+/* ------ opening ------ */
+.opening {
+  padding: 160px 48px 96px;
+  display: flex;
+  justify-content: center;
+  background: var(--paper);
+}
+.opening-inner { max-width: 960px; text-align: center; }
+.opening-addr {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 44px;
+}
+.opening-title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(34px, 4.2vw, 60px);
+  line-height: 1.12;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  margin-bottom: 48px;
+}
+.opening-title em { font-style: italic; color: var(--copper); font-weight: 400; }
+.opening-body {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 740px;
+  margin: 0 auto;
+  text-align: left;
+}
+.opening-body::first-letter {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 4.4em;
+  float: left;
+  line-height: 0.82;
+  margin: 0.05em 0.12em 0 0;
+  color: var(--copper);
+  letter-spacing: -0.02em;
+}
+
+/* ------ stats ------ */
+.stats {
+  padding: 32px 48px 120px;
+  background: var(--paper);
+}
+.stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 56px;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+.stat-val {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 2.8vw, 40px);
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.stat-val .unit {
+  font-size: 0.55em;
+  letter-spacing: 0.18em;
+  color: var(--ink-muted);
+  margin-left: 4px;
+  text-transform: uppercase;
+  font-style: normal;
+}
+.stat-lbl {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* ------ plate (full-bleed image) ------ */
+.plate {
+  background: var(--paper);
+  padding: 0 48px 120px;
+}
+.plate-inner { max-width: 1600px; margin: 0 auto; }
+.plate-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 22px;
+}
+.plate-head .label { color: var(--ink-faint); }
+.plate-image {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-warm);
+  aspect-ratio: 16/9;
+}
+.plate-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 2.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+.plate-image:hover img { transform: scale(1.10); }
+.plate-caption {
+  padding-top: 18px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+/* ------ scenes (3-card grid) ------ */
+.scenes {
+  padding: 130px 48px;
+  background: var(--paper-warm);
+}
+.scenes-head { text-align: center; max-width: 760px; margin: 0 auto 64px; }
+.scenes-head .role { display: block; margin-bottom: 22px; }
+.scenes-head .italic-title { margin-bottom: 22px; }
+.scenes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+.scene-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/2;
+  background: var(--paper-deep);
+  cursor: pointer;
+  text-decoration: none;
+}
+.scene-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.scene-card:hover img { transform: scale(1.05); }
+.scene-numeral {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  z-index: 2;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  color: rgba(245, 240, 228, 0.75);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+  transition: color 0.5s ease, letter-spacing 0.5s ease;
+}
+.scene-card:hover .scene-numeral {
+  color: rgba(245, 240, 228, 0.96);
+  letter-spacing: 0.14em;
+}
+.scene-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(20, 16, 12, 0.72) 0%,
+    rgba(20, 16, 12, 0.18) 45%,
+    rgba(20, 16, 12, 0) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 22px 24px;
+  transition: background 0.4s ease;
+}
+.scene-card:hover .scene-overlay {
+  background: linear-gradient(to top,
+    rgba(20, 16, 12, 0.92) 0%,
+    rgba(20, 16, 12, 0.45) 55%,
+    rgba(20, 16, 12, 0.05) 100%);
+}
+.scene-eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 228, 0.78);
+  margin-bottom: 10px;
+}
+.scene-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(24px, 2.2vw, 32px);
+  line-height: 1;
+  color: rgba(245, 240, 228, 0.98);
+  margin: 0;
+}
+.scene-desc {
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(245, 240, 228, 0.86);
+  max-width: 360px;
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.45s ease 0.1s,
+    margin-top 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.scene-card:hover .scene-desc {
+  max-height: 8em;
+  opacity: 1;
+  margin-top: 10px;
+}
+
+/* ------ split (text + image) ------ */
+.split {
+  padding: 80px 48px;
+  background: var(--paper);
+}
+.split-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 80px;
+  align-items: start;
+}
+.split.reverse .split-inner { grid-template-columns: 1.15fr 1fr; }
+.split.reverse .split-text { order: 2; }
+.split.reverse .split-image { order: 1; }
+.split-inner--alt { grid-template-columns: 1.15fr 1fr; }
+.split-text .role { display: block; margin-bottom: 22px; }
+.split-text .italic-title { margin-bottom: 26px; }
+.split-text .body-text + .body-text { margin-top: 14px; }
+.split-image {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-warm);
+  aspect-ratio: 3/2;
+}
+.split-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.6s ease;
+}
+.split-image:hover img { transform: scale(1.03); }
+.split-rule {
+  max-width: 1280px;
+  height: 1px;
+  background: var(--rule-soft);
+  margin: 64px auto;
+}
+.split-inner + .split-inner {
+  margin-top: 0;
+}
+.split-text--specs .role {
+  display: block;
+  margin-bottom: 22px;
+}
+.spec-list {
+  list-style: none;
+}
+.split-text > .spec-list {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule-soft);
+}
+.spec-list li {
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  padding: 6px 0;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.spec-list li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 14px;
+  height: 1px;
+  background: var(--copper);
+  display: inline-block;
+  transform: translateY(-4px);
+}
+
+/* ------ The Park (cinematic backdrop) ------ */
+.park {
+  position: relative;
+  padding: 120px 48px;
+  background: var(--steel);
+  color: rgba(245, 240, 228, 0.96);
+  overflow: hidden;
+}
+.park-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.park-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 55%;
+  transform: scale(1.04);
+  transition: transform 14s ease-out;
+}
+.park.in-view .park-bg img { transform: scale(1); }
+.park::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 55% 60% at 50% 50%,
+      rgba(15, 14, 10, 0.62) 0%,
+      rgba(15, 14, 10, 0.38) 55%,
+      rgba(15, 14, 10, 0) 90%),
+    linear-gradient(180deg,
+      rgba(15, 14, 10, 0.62) 0%,
+      rgba(15, 14, 10, 0.40) 30%,
+      rgba(15, 14, 10, 0.40) 70%,
+      rgba(15, 14, 10, 0.78) 100%);
+  pointer-events: none;
+}
+.park-inner {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 2;
+}
+.park-eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 228, 0.78);
+  margin-bottom: 26px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+}
+.park-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.18;
+  color: rgba(245, 240, 228, 0.98);
+  margin-bottom: 32px;
+  letter-spacing: -0.005em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45), 0 2px 24px rgba(0, 0, 0, 0.55);
+}
+.park-title em { color: var(--copper-light); font-style: italic; }
+.park-title .num {
+  font-style: normal;
+  font-weight: 300;
+}
+.park-body {
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.85;
+  color: rgba(245, 240, 228, 0.92);
+  max-width: 720px;
+  margin: 0 auto 56px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0 2px 16px rgba(0, 0, 0, 0.5);
+}
+.park-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding-top: 48px;
+  border-top: 1px solid rgba(245, 240, 228, 0.22);
+}
+.park-stat-val {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(24px, 2.4vw, 32px);
+  color: rgba(245, 240, 228, 0.98);
+  margin-bottom: 10px;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0 2px 14px rgba(0, 0, 0, 0.45);
+}
+.park-stat-lbl {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 228, 0.75);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+/* ------ materials grid (4 swatch cards) ------ */
+.materials {
+  padding: 130px 48px;
+  background: var(--paper);
+}
+.materials-head { text-align: center; max-width: 760px; margin: 0 auto 64px; }
+.materials-head .role { display: block; margin-bottom: 22px; }
+.materials-head .italic-title { margin-bottom: 22px; }
+.materials-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  max-width: 1080px;
+  margin: 0 auto;
+  perspective: 700px;
+}
+.material {
+  text-align: center;
+  cursor: default;
+}
+.material-swatch {
+  --tx: 0deg;
+  --ty: 0deg;
+  --lift: 0px;
+  --scale: 1;
+  width: 132px;
+  height: 132px;
+  margin: 0 auto 24px;
+  position: relative;
+  overflow: hidden;
+  background: var(--g);
+  background-size: 240% 240%;
+  background-position: 0% 50%;
+  box-shadow: 0 18px 36px -18px rgba(20, 16, 10, 0.55), 0 1px 0 rgba(245, 240, 228, 0.65) inset;
+  animation: swatchDrift 14s ease-in-out infinite;
+  transform: rotateX(var(--tx)) rotateY(var(--ty)) translateY(var(--lift)) scale(var(--scale));
+  transform-style: preserve-3d;
+  transition: box-shadow 0.7s ease;
+  will-change: transform;
+}
+.material-swatch::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 38%, rgba(0, 0, 0, 0) 62%, rgba(0, 0, 0, 0.18) 100%);
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+.material:hover .material-swatch {
+  --lift: -4px;
+  --scale: 1.04;
+  box-shadow: 0 28px 48px -20px rgba(20, 16, 10, 0.6), 0 1px 0 rgba(245, 240, 228, 0.65) inset;
+}
+@media (prefers-reduced-motion: reduce) {
+  .material-swatch { transform: none !important; }
+}
+.material:nth-child(1) .material-swatch { animation-delay: 0s; }
+.material:nth-child(2) .material-swatch { animation-delay: 1.8s; }
+.material:nth-child(3) .material-swatch { animation-delay: 3.6s; }
+.material:nth-child(4) .material-swatch { animation-delay: 5.4s; }
+@keyframes swatchDrift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.material-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(22px, 2vw, 28px);
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.material-desc {
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--ink-muted);
+}
+
+/* ------ gallery (drag-scroll carousel) ------ */
+.gallery {
+  padding: 56px 0 72px;
+  background: var(--paper);
+}
+.gallery-head {
+  text-align: center;
+  padding: 0 48px;
+  max-width: 760px;
+  margin: 0 auto 32px;
+}
+.gallery-head .role { display: block; margin-bottom: 22px; }
+.gallery-track {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 0 48px 8px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.gallery-track::-webkit-scrollbar { display: none; }
+.gallery-track:active { cursor: grabbing; }
+.gallery-item {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  overflow: hidden;
+  position: relative;
+  background: var(--paper-warm);
+}
+.gallery-item.wide { width: min(64vw, 780px); aspect-ratio: 16/10; }
+.gallery-item.tall { width: min(36vw, 440px); aspect-ratio: 3/4; }
+.gallery-item.sq   { width: min(46vw, 540px); aspect-ratio: 1; }
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+.gallery-item:hover img { transform: scale(1.03); }
+.gallery-nav {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 22px;
+  padding: 0 48px;
+}
+.gallery-btn {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+.gallery-btn:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.gallery-count {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+}
+.gallery-count #gIdx {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  margin-right: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------ the property (custom site plan) ------ */
+.property {
+  padding: 110px 48px;
+  background: var(--paper-warm);
+}
+.property-inner { max-width: 1280px; margin: 0 auto; }
+.property-head { text-align: center; margin-bottom: 48px; }
+.property-head .role { display: block; margin-bottom: 22px; }
+.property-head .italic-title { margin-bottom: 22px; }
+.property-head .body-text { font-size: 16px; max-width: 620px; margin: 0 auto; }
+.siteplan-frame {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--rule-soft);
+  padding: 36px 36px 28px;
+  position: relative;
+}
+.siteplan-svg { display: block; width: 100%; height: auto; }
+.siteplan-svg .lot {
+  fill: rgba(245, 240, 228, 0.4);
+  stroke: rgba(24, 22, 18, 0.65);
+  stroke-width: 1.2;
+}
+.siteplan-svg .bldg {
+  fill: rgba(245, 240, 228, 0.96);
+  stroke: rgba(24, 22, 18, 0.9);
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+}
+.siteplan-svg .patio {
+  fill: none;
+  stroke: rgba(24, 22, 18, 0.4);
+  stroke-width: 0.9;
+  stroke-dasharray: 3 2;
+}
+.siteplan-svg .paddock {
+  fill: rgba(139, 90, 43, 0.04);
+  stroke: var(--copper);
+  stroke-width: 1;
+  stroke-dasharray: 6 4;
+}
+.siteplan-svg .driveway {
+  fill: none;
+  stroke: rgba(24, 22, 18, 0.55);
+  stroke-width: 1.2;
+  stroke-dasharray: 2 4;
+  stroke-linecap: round;
+}
+.siteplan-svg .trail {
+  fill: none;
+  stroke: var(--copper);
+  stroke-width: 1.4;
+  stroke-dasharray: 4 4;
+  stroke-linecap: round;
+}
+.siteplan-svg .trail-arrow {
+  fill: var(--copper);
+}
+.siteplan-svg .lbl {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  fill: var(--ink);
+}
+.siteplan-svg .lbl-tiny {
+  font-family: var(--sans);
+  font-size: 8px;
+  letter-spacing: 0.28em;
+  fill: var(--ink-muted);
+}
+.siteplan-svg .lbl-micro {
+  font-family: var(--sans);
+  font-size: 6.5px;
+  letter-spacing: 0.22em;
+  fill: rgba(24, 22, 18, 0.55);
+}
+.siteplan-svg .walls line {
+  stroke: rgba(24, 22, 18, 0.42);
+  stroke-width: 0.7;
+}
+.siteplan-svg .addr {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.36em;
+  fill: var(--ink-muted);
+}
+.siteplan-svg .addr-park {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  fill: var(--copper-deep);
+}
+.siteplan-svg .gate {
+  stroke: var(--copper);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.siteplan-svg .north line {
+  stroke: rgba(24, 22, 18, 0.55);
+  stroke-width: 1;
+}
+.siteplan-svg .north path {
+  fill: rgba(24, 22, 18, 0.55);
+}
+.siteplan-svg .tree {
+  fill: rgba(24, 22, 18, 0.13);
+}
+.siteplan-svg .draw-in {
+  stroke-dasharray: var(--len, 1000);
+  stroke-dashoffset: var(--len, 1000);
+  transition: stroke-dashoffset 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.property.in-view .siteplan-svg .draw-in {
+  stroke-dashoffset: 0;
+}
+.siteplan-caption {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule-soft);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.siteplan-caption em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--ink);
+}
+
+/* ------ floor plan frames (image-based, cream-blended) ------ */
+.plans-toggle-wrap { text-align: center; margin-bottom: 36px; }
+.plans-toggle {
+  display: inline-flex;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+.plans-tab {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  background: transparent;
+  border: none;
+  padding: 16px 36px;
+  cursor: pointer;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+.plans-tab.active {
+  background: var(--ink);
+  color: var(--paper);
+}
+.plan-frame {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--rule-soft);
+  padding: 36px 36px 22px;
+  display: none;
+}
+.plan-frame.active { display: block; }
+.plan-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  mix-blend-mode: multiply;
+  filter: contrast(1.04) brightness(1.02);
+}
+.plan-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule-soft);
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.plan-meta em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--ink);
+}
+.property-context {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  max-width: 1100px;
+  margin: 36px auto 0;
+  flex-wrap: wrap;
+}
+.ctx-eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--copper);
+}
+.ctx-line {
+  display: inline-block;
+  width: 36px;
+  height: 1px;
+  background: var(--copper);
+}
+.ctx-text {
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 13px;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
+.ctx-text em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14.5px;
+  color: var(--ink);
+  letter-spacing: 0.005em;
+}
+
+/* ------ location ------ */
+.location {
+  padding: 140px 48px;
+  background: var(--paper);
+}
+.location-inner { max-width: 1280px; margin: 0 auto; }
+.location-head { text-align: center; margin-bottom: 64px; }
+.location-head .role { display: block; margin-bottom: 22px; }
+.location-head .italic-title { margin-bottom: 28px; }
+.location-text {
+  max-width: 720px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+.location-text .body-text { font-size: 17px; }
+.map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 21/9;
+  overflow: hidden;
+  background: var(--paper-warm);
+}
+.map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(100%) contrast(0.92) brightness(1.05);
+  transition: filter 0.8s ease;
+}
+.map:hover iframe { filter: grayscale(0%) contrast(1) brightness(1); }
+
+/* ------ inquiries (dark, single-agent card) ------ */
+.inquiries {
+  background: var(--steel);
+  padding: 140px 48px;
+}
+.inquiries-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.inquiries-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--copper-light);
+  margin-bottom: 20px;
+}
+.inquiries-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 48px);
+  color: rgba(245, 240, 228, 0.98);
+  margin-bottom: 14px;
+}
+.inquiries-subtitle {
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 15px;
+  color: rgba(245, 240, 228, 0.55);
+  margin-bottom: 56px;
+  line-height: 1.6;
+}
+.inquiries-price {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  color: var(--copper-light);
+  margin-bottom: 56px;
+}
+
+.agent-solo {
+  max-width: 520px;
+  margin: 0 auto 48px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 36px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.02);
+  text-align: left;
+}
+.agent-photo {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #3D372D 0%, #5C5346 100%);
+  flex-shrink: 0;
+}
+.agent-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+}
+.agent-info { flex: 1; }
+.agent-name {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  color: rgba(245, 240, 228, 0.98);
+  margin-bottom: 4px;
+}
+.agent-title {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 228, 0.45);
+  margin-bottom: 14px;
+}
+.agent-methods {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.agent-method {
+  font-family: var(--body);
+  font-size: 13px;
+  color: rgba(245, 240, 228, 0.78);
+  transition: color 0.3s ease;
+}
+.agent-method:hover { color: var(--copper-light); }
+.agent-method-label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 228, 0.35);
+  margin-bottom: 4px;
+}
+
+.inquiries-cta {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--steel);
+  background: rgba(245, 240, 228, 0.96);
+  padding: 18px 48px;
+  transition: background 0.4s ease, color 0.4s ease, letter-spacing 0.4s ease;
+}
+.inquiries-cta:hover {
+  background: var(--copper);
+  color: rgba(245, 240, 228, 0.98);
+  letter-spacing: 0.36em;
+}
+
+/* ------ footer ------ */
+.footer {
+  padding: 56px 48px;
+  background: var(--paper);
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer-mark {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--ink);
+}
+.footer-meta {
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--ink-faint);
+  letter-spacing: 0.08em;
+  max-width: 720px;
+  text-align: right;
+}
+
+/* ------ lightbox ------ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(20, 17, 12, 0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 92vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+.lightbox-close {
+  position: absolute;
+  top: 28px;
+  right: 36px;
+  background: none;
+  border: none;
+  color: rgba(245, 240, 228, 0.88);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: var(--sans);
+}
+
+/* ------ responsive ------ */
+@media (max-width: 980px) {
+  .nav-links, .nav-inquire { display: none; }
+  .nav-toggle { display: flex; }
+  .nav { padding: 20px 28px; }
+  .hero-foot { left: 28px; right: 28px; bottom: 36px; flex-direction: column; align-items: flex-start; gap: 16px; }
+  .hero-foot-right { text-align: left; }
+  .opening { padding: 120px 28px 80px; }
+  .stats { padding: 24px 28px 96px; }
+  .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 36px 24px; }
+  .plate, .gallery, .location, .inquiries { padding-left: 28px; padding-right: 28px; }
+  .scenes { padding: 80px 28px; }
+  .scenes-grid { grid-template-columns: 1fr; gap: 16px; }
+  .scene-card { aspect-ratio: 16/11; }
+  .scene-desc { max-height: 12em; opacity: 1; margin-top: 12px; }
+  .split { padding: 80px 28px; }
+  .split-inner, .split.reverse .split-inner { grid-template-columns: 1fr; gap: 40px; }
+  .split.reverse .split-text { order: 1; }
+  .split.reverse .split-image { order: 2; }
+  .park { padding: 100px 28px; }
+  .park-stats { grid-template-columns: 1fr; gap: 24px; padding-top: 32px; }
+  .materials { padding: 80px 28px; }
+  .materials-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 20px; }
+  .gallery-track { padding-left: 28px; padding-right: 28px; }
+  .gallery-item.wide { width: 88vw; }
+  .gallery-item.tall { width: 64vw; }
+  .gallery-item.sq { width: 76vw; }
+  .plans { padding: 80px 28px; }
+  .plans-image { padding: 16px; }
+  .plans-tab { padding: 14px 22px; font-size: 10px; letter-spacing: 0.22em; }
+  .footer { flex-direction: column; align-items: flex-start; }
+  .footer-meta { text-align: left; }
+  .agent-solo { flex-direction: column; text-align: center; padding: 24px; }
+  .agent-info { text-align: center; }
+  .agent-methods { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- loader -->
+<div class="loader" id="loader">
+  <div class="loader-mark">
+    <span class="word w1"><span>18</span></span>
+    <span class="word w2"><span>&nbsp;Bridlewood</span></span>
+    <span class="word w3"><span>&nbsp;Circle</span></span>
+  </div>
+  <div class="loader-line"></div>
+</div>
+
+<!-- nav -->
+<nav class="nav" id="nav">
+  <a class="nav-mark" href="#top">Bridlewood<em>&middot; Kirkland</em></a>
+  <ul class="nav-links">
+    <li><a href="#opening">Residence</a></li>
+    <li><a href="#scenes">Scenes</a></li>
+    <li><a href="#park">The Park</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#property">Property</a></li>
+    <li><a href="#location">Location</a></li>
+  </ul>
+  <a href="#inquiries" class="nav-inquire">Private Inquiry</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">×</button>
+  <a href="#opening">Residence</a>
+  <a href="#scenes">Scenes</a>
+  <a href="#park">The Park</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#property">Property</a>
+  <a href="#location">Location</a>
+  <a href="#inquiries">Inquire</a>
+</div>
+
+<!-- hero -->
+<section class="hero" id="top">
+  <div class="hero-media">
+    <img src="images/photos/00.jpg" alt="Aerial view of 18 Bridlewood Circle at twilight, set in the cedars of Bridle Trails">
+  </div>
+  <div class="hero-gradient"></div>
+  <div class="hero-foot">
+    <div>
+      <div class="label">A Northwest Rambler &middot; Bridle Trails</div>
+      <div class="hero-foot-title"><span class="num">18</span> Bridlewood Circle</div>
+    </div>
+  </div>
+</section>
+
+<!-- opening -->
+<section class="opening" id="opening">
+  <div class="opening-inner">
+    <div class="opening-addr">18 Bridlewood Circle &middot; Kirkland</div>
+    <h1 class="opening-title">A reimagined rambler,<br>made for <em>the forest</em>.</h1>
+    <p class="opening-body">Set on 1.16 private acres at the edge of Bridle Trails State Park, the residence is a single-story Northwest contemporary, completely rebuilt in 2006 with vaulted wood ceilings, exposed beams, and stone accents that meet the surrounding cedars. A detached barn, finished in 2023, adds eight hundred and ninety-four square feet of lounge, exercise, and study.</p>
+  </div>
+</section>
+
+<!-- stats -->
+<section class="stats">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-val"><span class="num" data-target="2769" data-decimals="0">0</span></div>
+      <div class="stat-lbl">Main Residence SF</div>
+    </div>
+    <div>
+      <div class="stat-val"><span class="num" data-target="894" data-decimals="0">0</span></div>
+      <div class="stat-lbl">Detached Living SF</div>
+    </div>
+    <div>
+      <div class="stat-val"><span class="num" data-target="4" data-decimals="0">0</span></div>
+      <div class="stat-lbl">Bedrooms</div>
+    </div>
+    <div>
+      <div class="stat-val"><span class="num" data-target="3.5" data-decimals="1">0</span></div>
+      <div class="stat-lbl">Bathrooms</div>
+    </div>
+    <div>
+      <div class="stat-val"><span class="num" data-target="1.16" data-decimals="2">0</span></div>
+      <div class="stat-lbl">Acre Lot</div>
+    </div>
+  </div>
+</section>
+
+<!-- plate one: the entry -->
+<section class="plate">
+  <div class="plate-inner">
+    <div class="plate-head">
+      <span class="label">The Entry</span>
+    </div>
+    <div class="plate-image">
+      <img src="images/photos/05.jpg" alt="A wood-and-stone entry pergola lit at twilight, framed by maples">
+    </div>
+    <div class="plate-caption">A timber pergola, set at the edge of the woods.</div>
+  </div>
+</section>
+
+<!-- scenes (3-card grid) -->
+<section class="scenes" id="scenes">
+  <div class="scenes-head">
+    <span class="role">On the Property</span>
+    <h2 class="italic-title"><em>The Residence, The Barn and The Park.</em></h2>
+    <p class="body-text">A residence drawn in cedar, stone, and glass. A detached barn of eight hundred ninety-four square feet, finished as quietly as a small house. And, beyond the gate, four hundred and eighty-two forested acres of state park. Three thresholds, gathered on a single private acre.</p>
+  </div>
+  <div class="scenes-grid">
+    <a class="scene-card" href="#residence">
+      <span class="scene-numeral">I</span>
+      <img src="images/photos/10.jpg" alt="Great room with stone column, vaulted cedar ceiling, exposed beams, and forest beyond the windows">
+      <div class="scene-overlay">
+        <h3 class="scene-name"><em>The Residence</em></h3>
+        <p class="scene-desc">Two thousand seven hundred sixty-nine square feet on a single floor. Vaulted wood ceilings, exposed beams, stone, and a quartz kitchen.</p>
+      </div>
+    </a>
+    <a class="scene-card" href="#barn">
+      <span class="scene-numeral">II</span>
+      <img src="images/photos/36.jpg" alt="The detached barn deep among the cedars, with split-rail wood paddock fencing in the foreground">
+      <div class="scene-overlay">
+        <h3 class="scene-name"><em>The Barn</em></h3>
+        <p class="scene-desc">Eight hundred ninety-four square feet, finished in 2023. Lounge with fireplace and wet bar, exercise room, office, half bath.</p>
+      </div>
+    </a>
+    <a class="scene-card scene-card--park" href="#park">
+      <span class="scene-numeral">III</span>
+      <img src="images/photos/60.jpg" alt="Aerial view of the residence among forested acres, Mt. Rainier and downtown Bellevue in the distance">
+      <div class="scene-overlay">
+        <h3 class="scene-name"><em>The Park</em></h3>
+        <p class="scene-desc">Four hundred and eighty-two acres of forested state park at the property line. Riding trails, walking paths, evergreen quiet.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- split: the residence -->
+<section class="split" id="residence">
+  <div class="split-inner">
+    <div class="split-text">
+      <span class="role">The Residence</span>
+      <h2 class="italic-title"><em>Elevated interiors of Wood, Stone &amp; Glass.</em></h2>
+      <p class="body-text">The great room rises beneath an exposed-beam vaulted ceiling, clad in warm cedar that draws the forest indoors. A stone hearth with a copper-mantled plaster fireplace anchors the room; expansive windows reveal the cedars on three sides.</p>
+      <p class="body-text">The kitchen, updated in 2023, is set in book-matched quartz with a stainless apron sink, walk-in pantry, instant hot water, and Thermador appliances. A raised breakfast bar runs the length of the island; pendant lighting falls from the beams.</p>
+    </div>
+    <div class="split-image">
+      <img src="images/photos/14.jpg" alt="Quartz kitchen with stainless apron sink, double oven, gas cooktop, and exposed cedar beams">
+    </div>
+  </div>
+
+  <div class="split-rule"></div>
+
+  <div class="split-inner split-inner--alt">
+    <div class="split-image">
+      <img src="images/photos/17.jpg" alt="The primary suite with vaulted cedar ceiling, stone fireplace surround, and a slider to the patio">
+    </div>
+    <div class="split-text split-text--specs">
+      <span class="role">Highlights</span>
+      <ul class="spec-list">
+        <li>Completely rebuilt in 2006, kitchen updated in 2023</li>
+        <li>Vaulted cedar ceilings with exposed beams throughout</li>
+        <li>Plaster fireplace with copper mantel; stone surround</li>
+        <li>Romantic primary suite with BainUltra jetted tub, heated floors, walk-in shower</li>
+        <li>Guest suite with 3/4 bath and private patio</li>
+        <li>Den / 4th bedroom with built-ins and Murphy bed</li>
+        <li>Skylights throughout; built-in speakers</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- split: the barn -->
+<section class="split" id="barn">
+  <div class="split-inner">
+    <div class="split-text">
+      <span class="role">The Barn</span>
+      <h2 class="italic-title"><em>A pavilion in the cedars.</em></h2>
+      <p class="body-text">Originally built in 2006 and converted in 2023, the detached barn is a fully finished pavilion: vaulted wood ceilings with skylights, two sets of nano doors that open to the lawn, and a mini-split for year-round comfort. Inside, a lounge with fireplace and wet bar; an exercise room; an office; storage; a half bath.</p>
+      <p class="body-text">The square footage is not counted in MLS totals. It functions as a guest house, a studio, a third living room, depending on the day.</p>
+    </div>
+    <div class="split-image">
+      <img src="images/photos/26.jpg" alt="The detached barn at twilight, front-on, lit through center doors with deep cedars rising behind">
+    </div>
+  </div>
+
+  <div class="split-rule"></div>
+
+  <div class="split-inner split-inner--alt">
+    <div class="split-image">
+      <img src="images/photos/29.jpg" alt="Inside the barn: an exercise room beneath a dark cedar ceiling, nano doors open to the lawn">
+    </div>
+    <div class="split-text split-text--specs">
+      <span class="role">Highlights</span>
+      <ul class="spec-list">
+        <li>894 SF detached, finished 2023 (not in MLS SF)</li>
+        <li>Two sets of nano doors opening to the grounds</li>
+        <li>Vaulted wood ceilings with skylights</li>
+        <li>Lounge with fireplace, wet bar, beverage cooler</li>
+        <li>Exercise room and office</li>
+        <li>Storage and half bath</li>
+        <li>Mini-split heating and cooling</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- plate three: the entertainment patio -->
+<section class="plate">
+  <div class="plate-inner">
+    <div class="plate-head">
+      <span class="label">The Entertainment Patio</span>
+    </div>
+    <div class="plate-image">
+      <img src="images/photos/33.jpg" alt="Twilight on the entertainment patio with a fire feature, stone column, and the home glowing through the cedars">
+    </div>
+    <div class="plate-caption">Stone, lit from beneath cedars at last light.</div>
+  </div>
+</section>
+
+<!-- the park (cinematic backdrop section) -->
+<section class="park" id="park">
+  <div class="park-bg">
+    <img src="images/photos/03.jpg" alt="The home at twilight, the cedars rising on every side toward Bridle Trails State Park">
+  </div>
+  <div class="park-inner">
+    <div class="park-eyebrow">The Setting</div>
+    <h2 class="park-title">Where the lot ends,<br><em>the trail begins.</em></h2>
+    <p class="park-body">Bridle Trails State Park begins where the lot ends: four hundred and eighty-two forested acres of riding and walking trails, second-growth Douglas fir, and quiet. The neighborhood is named for it. The home is sited for it. Equestrians and outdoor enthusiasts arrive at the trailhead by walking through the gate.</p>
+    <div class="park-stats">
+      <div>
+        <div class="park-stat-val"><em><span class="num" data-target="482" data-decimals="0">0</span></em></div>
+        <div class="park-stat-lbl">Forested Acres</div>
+      </div>
+      <div>
+        <div class="park-stat-val"><em><span class="num" data-target="28" data-decimals="0">0</span>+</em></div>
+        <div class="park-stat-lbl">Miles of Trail</div>
+      </div>
+      <div>
+        <div class="park-stat-val"><em><span class="num" data-target="0" data-decimals="0">0</span></em></div>
+        <div class="park-stat-lbl">Steps from the Gate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- materials (4 swatch cards) -->
+<section class="materials">
+  <div class="materials-head">
+    <span class="role">A Material Palette</span>
+    <h2 class="italic-title"><em>The four tones of the residence.</em></h2>
+  </div>
+  <div class="materials-grid">
+    <div class="material">
+      <div class="material-swatch" style="--g: linear-gradient(135deg, #A98666 0%, #7A5A3C 45%, #4F3A22 100%);"></div>
+      <div class="material-name"><em>Cedar</em></div>
+      <p class="material-desc">Vaulted ceilings and exposed beams, drawn warm from the surrounding forest.</p>
+    </div>
+    <div class="material">
+      <div class="material-swatch" style="--g: linear-gradient(135deg, #C5B8A4 0%, #968971 55%, #6E624B 100%);"></div>
+      <div class="material-name"><em>Stone</em></div>
+      <p class="material-desc">A hearth, a fireplace surround, and exterior accents, coursed quietly into the architecture.</p>
+    </div>
+    <div class="material">
+      <div class="material-swatch" style="--g: linear-gradient(135deg, #F1ECDD 0%, #DCD4BE 55%, #BAAF94 100%);"></div>
+      <div class="material-name"><em>Plaster</em></div>
+      <p class="material-desc">A hand-troweled fireplace face, set against the cedar; the warmest of the cool tones.</p>
+    </div>
+    <div class="material">
+      <div class="material-swatch" style="--g: linear-gradient(135deg, #D29862 0%, #8B5A2B 50%, #5C3915 100%);"></div>
+      <div class="material-name"><em>Copper</em></div>
+      <p class="material-desc">A mantel, a kitchen pendant, a band at the patio. The single bright accent against everything else.</p>
+    </div>
+  </div>
+</section>
+
+<!-- gallery (drag-scroll carousel, MLS order from Redfin) -->
+<section class="gallery" id="gallery">
+  <div class="gallery-head">
+    <span class="role">A Visual Record</span>
+    <h2 class="italic-title"><em>Through the lens.</em></h2>
+  </div>
+  <div class="gallery-track" id="galleryTrack">
+    <div class="gallery-item wide"><img src="images/photos/00.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item tall"><img src="images/photos/01.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/02.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/03.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/04.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item tall"><img src="images/photos/05.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/06.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/07.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/08.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item sq"><img src="images/photos/09.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/10.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/11.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/12.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item sq"><img src="images/photos/13.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/14.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/15.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/16.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/17.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item sq"><img src="images/photos/18.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item tall"><img src="images/photos/19.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/20.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/21.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item tall"><img src="images/photos/22.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/23.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/24.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/25.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/26.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/27.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/28.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/29.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/30.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/31.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/32.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item sq"><img src="images/photos/33.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/34.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/35.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/36.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/37.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/38.jpg" alt="" loading="lazy"></div>
+  </div>
+  <div class="gallery-nav">
+    <button class="gallery-btn" id="gPrev" aria-label="Previous">&#8592;</button>
+    <span class="gallery-count"><span id="gIdx">1</span> / 39</span>
+    <button class="gallery-btn" id="gNext" aria-label="Next">&#8594;</button>
+  </div>
+</section>
+
+<!-- the property (floor plans, in cream) -->
+<section class="property" id="property">
+  <div class="property-inner">
+    <div class="property-head">
+      <span class="role">The Property</span>
+      <h2 class="italic-title"><em>The residence &amp; the barn, in plan.</em></h2>
+      <p class="body-text">A residence and a detached barn on 1.16 private acres at the gate of Bridle Trails State Park.</p>
+    </div>
+
+    <div class="plans-toggle-wrap">
+      <div class="plans-toggle" role="tablist">
+        <button class="plans-tab active" data-plan="main" role="tab">Main Residence</button>
+        <button class="plans-tab" data-plan="barn" role="tab">The Barn</button>
+      </div>
+    </div>
+
+    <div class="plan-frame active" data-plan="main">
+      <img src="images/floorplan-main.png" alt="Main residence floor plan: 4 bedrooms, primary suite, great room with patio access, kitchen, dining">
+      <div class="plan-meta">
+        <span><em>Main Residence</em> &middot; Single Story</span>
+        <span>2,769 SF &middot; 4 BD &middot; 3.5 BA</span>
+      </div>
+    </div>
+
+    <div class="plan-frame" data-plan="barn">
+      <img src="images/floorplan-barn.png" alt="Detached barn floor plan: exercise room, recreation room, den, storage, half bath">
+      <div class="plan-meta">
+        <span><em>The Barn</em> &middot; Detached Living</span>
+        <span>894 SF &middot; Finished 2023</span>
+      </div>
+    </div>
+
+    <div class="property-context">
+      <span class="ctx-eyebrow">Beyond the Gate</span>
+      <span class="ctx-line"></span>
+      <span class="ctx-text"><em>Bridle Trails State Park</em> &middot; 482 forested acres at the property line</span>
+    </div>
+  </div>
+</section>
+
+<!-- legacy site-plan markup retained for graceful fallback (hidden) -->
+<div style="display:none">
+    <div class="siteplan-frame">
+      <svg class="siteplan-svg" viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Site plan of 18 Bridlewood Circle showing the residence, barn, paddock, driveway, and the gate to Bridle Trails State Park">
+
+        <!-- subtle tree texture in the perimeter -->
+        <g class="trees" aria-hidden="true">
+          <!-- top edge cluster -->
+          <circle class="tree" cx="120" cy="135" r="6" />
+          <circle class="tree" cx="160" cy="155" r="5" />
+          <circle class="tree" cx="200" cy="125" r="7" />
+          <circle class="tree" cx="245" cy="150" r="5" />
+          <circle class="tree" cx="290" cy="130" r="6" />
+          <circle class="tree" cx="335" cy="155" r="5" />
+          <circle class="tree" cx="380" cy="125" r="7" />
+          <circle class="tree" cx="425" cy="148" r="5" />
+          <circle class="tree" cx="468" cy="130" r="6" />
+          <circle class="tree" cx="540" cy="148" r="5" />
+          <circle class="tree" cx="585" cy="128" r="7" />
+          <circle class="tree" cx="630" cy="155" r="5" />
+          <circle class="tree" cx="678" cy="135" r="6" />
+          <circle class="tree" cx="725" cy="150" r="5" />
+          <circle class="tree" cx="770" cy="128" r="7" />
+          <circle class="tree" cx="815" cy="148" r="5" />
+          <circle class="tree" cx="860" cy="135" r="6" />
+          <!-- left edge -->
+          <circle class="tree" cx="115" cy="200" r="5" />
+          <circle class="tree" cx="135" cy="245" r="6" />
+          <circle class="tree" cx="118" cy="290" r="5" />
+          <circle class="tree" cx="138" cy="335" r="6" />
+          <circle class="tree" cx="120" cy="380" r="5" />
+          <circle class="tree" cx="135" cy="425" r="6" />
+          <circle class="tree" cx="118" cy="470" r="5" />
+          <!-- right edge -->
+          <circle class="tree" cx="880" cy="200" r="5" />
+          <circle class="tree" cx="858" cy="248" r="7" />
+          <circle class="tree" cx="878" cy="293" r="5" />
+          <circle class="tree" cx="860" cy="475" r="6" />
+          <!-- bottom row -->
+          <circle class="tree" cx="160" cy="500" r="6" />
+          <circle class="tree" cx="220" cy="495" r="5" />
+          <circle class="tree" cx="280" cy="500" r="7" />
+          <circle class="tree" cx="725" cy="500" r="5" />
+          <circle class="tree" cx="785" cy="498" r="6" />
+          <circle class="tree" cx="830" cy="500" r="5" />
+        </g>
+
+        <!-- lot boundary -->
+        <rect class="lot draw-in" x="100" y="115" width="800" height="395" style="--len:2400" />
+
+        <!-- residence: outline traced from the actual floor plan
+             (west bedroom wing, central great-room bulge, eastern primary suite, primary bath jutting further east, entry patio notch on south) -->
+        <g class="residence">
+          <!-- entertainment patio (north of central great room) -->
+          <rect class="patio draw-in" x="320" y="252" width="170" height="52" style="--len:464" />
+          <text x="405" y="284" text-anchor="middle" class="lbl-tiny">PATIO</text>
+
+          <!-- main residence outline -->
+          <path class="bldg draw-in"
+            d="M210,304
+               L300,304
+               L300,278 L500,278 L500,304
+               L568,304
+               L568,338 L600,338 L600,378 L568,378
+               L568,395
+               L405,395
+               L405,415 L350,415 L350,395
+               L210,395
+               Z"
+            style="--len:1500" />
+
+          <!-- subtle interior walls (suggest room divisions) -->
+          <g class="walls">
+            <line x1="300" y1="304" x2="300" y2="395" />
+            <line x1="500" y1="304" x2="500" y2="395" />
+            <line x1="568" y1="338" x2="568" y2="378" />
+            <line x1="255" y1="304" x2="255" y2="395" />
+            <line x1="400" y1="278" x2="400" y2="395" />
+          </g>
+
+          <!-- room labels in the larger rooms -->
+          <text x="400" y="338" text-anchor="middle" class="lbl-tiny">GREAT ROOM</text>
+          <text x="350" y="376" text-anchor="middle" class="lbl-tiny">KITCHEN</text>
+          <text x="535" y="358" text-anchor="middle" class="lbl-tiny">PRIMARY</text>
+          <text x="232" y="354" text-anchor="middle" class="lbl-tiny" transform="rotate(-90 232 354)">BEDROOMS</text>
+
+          <!-- building name -->
+          <text x="252" y="270" class="lbl">The Residence</text>
+        </g>
+
+        <!-- barn + paddock (east of residence) -->
+        <g class="barn-grp">
+          <!-- paddock fence -->
+          <rect class="paddock draw-in" x="660" y="245" width="220" height="200" style="--len:840" />
+          <text x="770" y="460" text-anchor="middle" class="lbl-tiny">PADDOCK</text>
+
+          <!-- barn outline (3 vertical sections with entry door notch on south) -->
+          <path class="bldg draw-in"
+            d="M695,320
+               L860,320
+               L860,402
+               L800,402
+               L800,410 L770,410 L770,402
+               L695,402
+               Z"
+            style="--len:540" />
+
+          <!-- barn interior walls -->
+          <g class="walls">
+            <line x1="745" y1="320" x2="745" y2="402" />
+            <line x1="800" y1="320" x2="800" y2="402" />
+            <line x1="800" y1="362" x2="860" y2="362" />
+            <line x1="695" y1="380" x2="745" y2="380" />
+          </g>
+
+          <!-- barn room labels -->
+          <text x="720" y="354" text-anchor="middle" class="lbl-micro">EXERCISE</text>
+          <text x="772" y="358" text-anchor="middle" class="lbl-micro">REC</text>
+          <text x="830" y="345" text-anchor="middle" class="lbl-micro">DEN</text>
+          <text x="830" y="385" text-anchor="middle" class="lbl-micro">STOR</text>
+
+          <!-- building name -->
+          <text x="697" y="312" class="lbl">The Barn</text>
+        </g>
+
+        <!-- driveway: from Bridlewood Circle (south) curving to the residence entry patio, then continuing east past the residence to the barn -->
+        <path class="driveway draw-in"
+          d="M460,512 Q455,478 415,455 Q385,440 378,425"
+          style="--len:180" />
+        <path class="driveway draw-in"
+          d="M408,415 Q480,425 560,425 Q620,425 670,408"
+          style="--len:340" />
+
+        <!-- entry pergola marker (at the entry patio notch on south side of residence) -->
+        <g class="entry">
+          <circle cx="378" cy="415" r="3.5" fill="var(--copper)" />
+          <text x="370" y="432" text-anchor="end" class="lbl-tiny">ENTRY</text>
+        </g>
+
+        <!-- "Bridlewood Circle" road label south of the lot -->
+        <text x="500" y="555" text-anchor="middle" class="addr">BRIDLEWOOD CIRCLE</text>
+
+        <!-- north arrow (top right corner) -->
+        <g class="north" transform="translate(880,72)" aria-hidden="true">
+          <line x1="0" y1="-22" x2="0" y2="6" />
+          <path d="M-6,-12 L0,-22 L6,-12 Z" />
+          <text x="0" y="22" text-anchor="middle" class="lbl-tiny">N</text>
+        </g>
+
+        <!-- gate to state park (east edge of lot) + copper trail line going off-canvas east -->
+        <line class="gate" x1="900" y1="290" x2="900" y2="340" />
+        <text x="908" y="320" class="lbl-tiny" style="text-anchor:start">GATE</text>
+        <path class="trail draw-in"
+          d="M900,315 Q930,300 945,290 Q970,275 985,295"
+          style="--len:140" />
+        <polygon class="trail-arrow" points="985,290 992,295 985,300" />
+
+        <!-- bridle trails state park label, hovering off the east edge -->
+        <text x="940" y="200" text-anchor="middle" class="addr-park">
+          <tspan x="940" dy="0">BRIDLE TRAILS</tspan>
+          <tspan x="940" dy="14" style="font-style:italic; font-family:var(--serif); font-size:13px; letter-spacing:0.04em;">State Park</tspan>
+          <tspan x="940" dy="20" style="font-size:9px;">482 ACRES</tspan>
+        </text>
+      </svg>
+
+      <div class="siteplan-caption">
+        <span><em>18 Bridlewood Circle</em> &middot; Kirkland, WA</span>
+        <span>1.16 Acres &middot; 50,503 SF Lot</span>
+      </div>
+    </div>
+</div>
+<!-- end legacy site-plan markup -->
+
+<!-- location -->
+<section class="location" id="location">
+  <div class="location-inner">
+    <div class="location-head">
+      <span class="role">Location</span>
+      <h2 class="italic-title"><em>At the edge of Bridle Trails.</em></h2>
+    </div>
+    <div class="location-text">
+      <p class="body-text">Set in the Bridle Trails neighborhood of Kirkland, the residence is six minutes by car from downtown Kirkland, ten from downtown Bellevue, twenty from Seattle. Lake Washington Schools — Ben Franklin Elementary, Rose Hill Middle, Lake Washington High. Sea-Tac is half an hour by car.</p>
+    </div>
+    <div class="map">
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-122.1932%2C47.6595%2C-122.1612%2C47.6745&layer=mapnik&marker=47.6670%2C-122.1772"
+        title="Map of 18 Bridlewood Circle, Kirkland"
+        loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- inquiries (dark, single-agent card) -->
+<section class="inquiries" id="inquiries">
+  <div class="inquiries-inner">
+    <div class="inquiries-label">Private Inquiry</div>
+    <h2 class="inquiries-title">By Private Appointment.</h2>
+    <p class="inquiries-subtitle">A residence best experienced in person, where the cedars meet the cedar ceilings and the gate opens onto the trails.</p>
+    <p class="inquiries-price"><em>Offered at $3,385,000</em></p>
+
+    <div class="agent-solo">
+      <div class="agent-photo">
+        <img src="images/beth-billington.jpg" alt="Beth Billington" loading="lazy">
+      </div>
+      <div class="agent-info">
+        <div class="agent-name">Beth Billington</div>
+        <div class="agent-title">Global Luxury Specialist &middot; Coldwell Banker Bain</div>
+        <div class="agent-methods">
+          <a href="tel:4254505208" class="agent-method">
+            <span class="agent-method-label">Phone</span>425.450.5208
+          </a>
+          <a href="mailto:beth@bethbillington.com" class="agent-method">
+            <span class="agent-method-label">Email</span>beth@bethbillington.com
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <a href="mailto:beth@bethbillington.com?subject=Private%20Showing%20-%2018%20Bridlewood%20Circle" class="inquiries-cta">Request Private Showing</a>
+  </div>
+</section>
+
+<!-- footer -->
+<footer class="footer">
+  <div class="footer-mark"><em>18 Bridlewood</em></div>
+  <div class="footer-meta">18 Bridlewood Circle, Kirkland, Washington 98033 &middot; MLS #2378163 &middot; 2025 Taxes $20,539 &middot; Exclusive representation by Beth Billington, Coldwell Banker Bain. All information deemed reliable but not guaranteed. Equal Housing Opportunity.</div>
+</footer>
+
+<!-- lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">Close</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+  // loader hide — fires when the document is parsed, not when all images load
+  (function() {
+    const loader = document.getElementById('loader');
+    const hero = document.querySelector('.hero');
+    const reveal = () => {
+      hero.classList.add('loaded');
+      loader.classList.add('done');
+      setTimeout(() => loader.classList.add('gone'), 900);
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => setTimeout(reveal, 1800));
+    } else {
+      setTimeout(reveal, 1800);
+    }
+  })();
+
+  // nav scrolled state
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // mobile menu
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  navToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+  mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  // ----- stats count-up (re-triggers each time stats enter view) -----
+  function formatNum(n, decimals) {
+    return Number(n).toLocaleString('en-US', {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals
+    });
+  }
+  function animateNum(el) {
+    const target = parseFloat(el.dataset.target);
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const duration = 1500;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const v = target * eased;
+      el.textContent = formatNum(v, decimals);
+      if (t < 1) requestAnimationFrame(tick);
+      else el.textContent = formatNum(target, decimals);
+    }
+    requestAnimationFrame(tick);
+  }
+  const statObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) animateNum(e.target);
+      else e.target.textContent = '0';
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.stat-val .num, .park-stat-val .num').forEach(el => statObs.observe(el));
+
+  // ----- park backdrop: slow scale on enter view ------
+  const parkObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        parkObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.park').forEach(el => parkObs.observe(el));
+
+  // ----- subtle scroll-reveal on italic titles, role eyebrows, and key body -----
+  const revealSel = '.italic-title, .role, .opening-title, .opening-body, .opening-addr, .park-title, .park-eyebrow, .park-body, .inquiries-title, .inquiries-subtitle, .inquiries-price';
+  const revealEls = document.querySelectorAll(revealSel);
+  revealEls.forEach(el => {
+    if (el.closest('.hero, .loader, .nav, .mobile-menu')) return;
+    el.classList.add('reveal');
+  });
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // ----- gallery drag + arrows + counter -----
+  const track = document.getElementById('galleryTrack');
+  const gItems = track.querySelectorAll('.gallery-item');
+  const gIdx = document.getElementById('gIdx');
+  let drag = false, sx, sl, didDrag = false;
+  track.addEventListener('mousedown', e => { drag = true; didDrag = false; sx = e.pageX - track.offsetLeft; sl = track.scrollLeft; });
+  track.addEventListener('mouseleave', () => drag = false);
+  track.addEventListener('mouseup', () => drag = false);
+  track.addEventListener('mousemove', e => {
+    if (!drag) return;
+    e.preventDefault();
+    didDrag = true;
+    track.scrollLeft = sl - (e.pageX - track.offsetLeft - sx) * 1.5;
+  });
+  document.getElementById('gPrev').addEventListener('click', () => track.scrollBy({ left: -480, behavior: 'smooth' }));
+  document.getElementById('gNext').addEventListener('click', () => track.scrollBy({ left: 480, behavior: 'smooth' }));
+  track.addEventListener('scroll', () => {
+    const c = track.scrollLeft + track.clientWidth / 2;
+    let ci = 0, md = Infinity;
+    gItems.forEach((it, i) => {
+      const d = Math.abs(it.offsetLeft + it.clientWidth / 2 - c - track.offsetLeft);
+      if (d < md) { md = d; ci = i; }
+    });
+    gIdx.textContent = ci + 1;
+  }, { passive: true });
+
+  // gallery lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+  gItems.forEach(g => {
+    g.addEventListener('click', () => {
+      if (didDrag) return;
+      lightboxImg.src = g.querySelector('img').src;
+      lightbox.classList.add('open');
+    });
+  });
+  const closeLb = () => lightbox.classList.remove('open');
+  lightbox.addEventListener('click', closeLb);
+  lightboxClose.addEventListener('click', e => { e.stopPropagation(); closeLb(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+  // ----- floor plan toggle (Main Residence / The Barn) -----
+  document.querySelectorAll('.plans-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const plan = btn.dataset.plan;
+      document.querySelectorAll('.plans-tab').forEach(b => b.classList.toggle('active', b.dataset.plan === plan));
+      document.querySelectorAll('.plan-frame').forEach(f => f.classList.toggle('active', f.dataset.plan === plan));
+    });
+  });
+
+  // ----- magnetic tilt on material swatches -----
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(hover: hover)').matches) {
+    const TILT_MAX = 14;
+    const lerp = (a, b, t) => a + (b - a) * t;
+    document.querySelectorAll('.material-swatch').forEach(swatch => {
+      let tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
+      const animate = () => {
+        cx = lerp(cx, tx, 0.20);
+        cy = lerp(cy, ty, 0.20);
+        swatch.style.setProperty('--tx', cx.toFixed(2) + 'deg');
+        swatch.style.setProperty('--ty', cy.toFixed(2) + 'deg');
+        if (Math.abs(tx - cx) > 0.05 || Math.abs(ty - cy) > 0.05) {
+          raf = requestAnimationFrame(animate);
+        } else {
+          swatch.style.setProperty('--tx', tx.toFixed(2) + 'deg');
+          swatch.style.setProperty('--ty', ty.toFixed(2) + 'deg');
+          raf = null;
+        }
+      };
+      swatch.addEventListener('mousemove', e => {
+        const r = swatch.getBoundingClientRect();
+        const dx = (e.clientX - r.left) / r.width - 0.5;
+        const dy = (e.clientY - r.top) / r.height - 0.5;
+        tx = -dy * TILT_MAX;
+        ty = dx * TILT_MAX;
+        if (!raf) raf = requestAnimationFrame(animate);
+      });
+      swatch.addEventListener('mouseleave', () => {
+        tx = 0; ty = 0;
+        if (!raf) raf = requestAnimationFrame(animate);
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
